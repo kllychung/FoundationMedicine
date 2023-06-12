@@ -21,7 +21,8 @@ Getting Started
 * AWS account with AWS CLI configured locally with AWS credentials
 * An Auth0 account
 
-### Setup
+### Serverless App Setup
+
 1. Download the starter code
 ````
 git clone git@github.com:kllychung/FoundationMedicine.git
@@ -33,6 +34,8 @@ AUTH0_CLIENT_ID=
 AUTH0_CLIENT_SECRET=
 AUTH0_URL=
 ````
+>Example: AUTH0_URL="https://<<Your_AUTH0_TENANT>>.us.auth0.com/oauth/token"
+
 3. To create and run the stack<br /> 
 * In a live lambda development environment &#8594;`npm run dev`
 * Build your app and synthesize your stacks. &#8594;`npm run build`
@@ -40,6 +43,30 @@ AUTH0_URL=
 * Remove all your stacks and all of their resources from AWS. Or optionally removes, a specific stack. &#8594; `npm run remove [stack]`
 
 > Note that is the stack is successfully created, the api url will output on the terminal
+
+### API Tests Setup
+
+Navigate to the project directory in your terminal.
+````
+cd api_tests
+````
+Install tests dependencies by running 
+````
+npm install 
+````
+The api_tests folder has a env variable, make sure to set it to your api variable 
+````
+API_URL=""
+```` 
+>example API_URL="https://<<YOUR_DOMAIN_EXAMPLE>>.us-east-2.amazonaws.com/"
+
+### Test run & reporting
+To run tests 
+````
+npm run test
+```` 
+Each test run generates a html report under folder mochawesome-report
+<img width="765" alt="image" src="https://github.com/kllychung/FoundationMedicine/assets/39935361/b1c0e590-f410-44ff-8359-3b068d7c8dbe">
 
 
 ## Documentation
