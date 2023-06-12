@@ -1,0 +1,311 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-06-12T17:37:26.898Z",
+    "end": "2023-06-12T17:37:36.276Z",
+    "duration": 9378,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "13abf6da-3757-4fdd-85f2-3aff193ee060",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [
+        {
+          "title": "\"after all\" hook in \"{root}\"",
+          "fullTitle": "\"after all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 91,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "await dynamoDbClient.delete({\n    TableName: DYNAMO_TABLE_NAME,\n    Key: {\n        email: registeredUser.email\n    }\n}).promise()",
+          "err": {},
+          "uuid": "379e8e06-a754-433d-a593-cdccfa090d43",
+          "parentUUID": "13abf6da-3757-4fdd-85f2-3aff193ee060",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "940eb6b9-9056-4ec0-9e66-dd8b02f25294",
+          "title": "Login endpoint tests",
+          "fullFile": "/Users/kellychung/Documents/FoundationMedicine/user-app/api_tests/login_test.js",
+          "file": "/login_test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Login endpoint tests\"",
+              "fullTitle": "Login endpoint tests \"before all\" hook in \"Login endpoint tests\"",
+              "timedOut": false,
+              "duration": 2545,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const registerPostOption = {\n    ...REGISTER_POST_OPTIONS,\n    data: new URLSearchParams(registeredUser)\n};\n//register user\nawait axios.request(registerPostOption)",
+              "err": {},
+              "uuid": "03cec79e-c933-4df7-81bb-13ed250ae828",
+              "parentUUID": "940eb6b9-9056-4ec0-9e66-dd8b02f25294",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Login endpoint tests\"",
+              "fullTitle": "Login endpoint tests \"after all\" hook in \"Login endpoint tests\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// const deleteUserEndpoint = DELETE_ENDPOINT_URL + registeredUser.email;\n// const deleteOptions = {\n//     method: 'DELETE',\n//     url: deleteUserEndpoint,\n// };\n// await axios.request(deleteOptions)\nafter(async () => {\n    await dynamoDbClient.delete({\n        TableName: DYNAMO_TABLE_NAME,\n        Key: {\n            email: registeredUser.email\n        }\n    }).promise()\n});",
+              "err": {},
+              "uuid": "6f9f1d56-eada-46e7-926e-5af27549cf2c",
+              "parentUUID": "940eb6b9-9056-4ec0-9e66-dd8b02f25294",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Successful login returns valid token",
+              "fullTitle": "Login endpoint tests Successful login returns valid token",
+              "timedOut": false,
+              "duration": 2706,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPostOption['data'] = new URLSearchParams(registeredUser)\n//Fill login form with valid login info\nconst postResponse = await axios.request(loginPostOption)\n//Verify api returns valid token\nexpect(postResponse.data).to.include.keys(\"access_token\")",
+              "err": {},
+              "uuid": "39066f0a-e054-432d-8576-6a0042fe774b",
+              "parentUUID": "940eb6b9-9056-4ec0-9e66-dd8b02f25294",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unregistered user cannot login",
+              "fullTitle": "Login endpoint tests Unregistered user cannot login",
+              "timedOut": false,
+              "duration": 203,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const unregisteredUser = USERS[\"unregisteredUser\"]\nloginPostOption['data'] = new URLSearchParams(unregisteredUser)\nlet error, response;\n//Fill login form with valid login info\ntry {\n    response = await axios.request(loginPostOption)\n}\ncatch (err) {\n    error = err\n}\nexpect(error.response.status).to.equal(401)\nexpect(error.response.data.error_message).to.equal(\"unauthorized\")",
+              "err": {},
+              "uuid": "63cf48ad-26ef-418e-970a-48a32f6a3a37",
+              "parentUUID": "940eb6b9-9056-4ec0-9e66-dd8b02f25294",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "39066f0a-e054-432d-8576-6a0042fe774b",
+            "63cf48ad-26ef-418e-970a-48a32f6a3a37"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2909,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "a72fbde4-f96f-4038-af01-fec9f23d7e3e",
+          "title": "Register post endpoints tests",
+          "fullFile": "/Users/kellychung/Documents/FoundationMedicine/user-app/api_tests/register_test.js",
+          "file": "/register_test.js",
+          "beforeHooks": [],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Register post endpoints tests\"",
+              "fullTitle": "Register post endpoints tests \"after all\" hook in \"Register post endpoints tests\"",
+              "timedOut": false,
+              "duration": 94,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await dynamoDbClient.delete({\n    TableName: DYNAMO_TABLE_NAME,\n    Key: {\n        email: userToBeRegsistered.email\n    }\n}).promise()",
+              "err": {},
+              "uuid": "526383fa-623a-4ddd-96ce-1d0a2fe41433",
+              "parentUUID": "a72fbde4-f96f-4038-af01-fec9f23d7e3e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "user info is created in dynamo db",
+              "fullTitle": "Register post endpoints tests user info is created in dynamo db",
+              "timedOut": false,
+              "duration": 339,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const postOption = {\n            method: 'POST',\n            url: REGISTER_ENPOINT_URL,\n            headers: { 'content-type': 'application/x-www-form-urlencoded' },\n            data: new URLSearchParams(userToBeRegsistered)\n        };\n        //Fill registration with valid info and submit form\n        await axios.request(postOption)\n        //Make a get request to retrieve user from dynamo db\n        const getUserResponse = await dynamoDbClient.get({\n            TableName: DYNAMO_TABLE_NAME,\n            Key: {\n                email: userToBeRegsistered.email,\n            }\n        }).promise()\n        expect(userToBeRegsistered).to.eql(getUserResponse.Item);",
+              "err": {},
+              "uuid": "2d1da8ad-e2e4-4a38-a3ef-5190688e94bb",
+              "parentUUID": "a72fbde4-f96f-4038-af01-fec9f23d7e3e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2d1da8ad-e2e4-4a38-a3ef-5190688e94bb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 339,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "e9f806d6-4b6b-498f-a758-02085e52e89b",
+          "title": "Treasure endpoint tests",
+          "fullFile": "/Users/kellychung/Documents/FoundationMedicine/user-app/api_tests/treasure_test.js",
+          "file": "/treasure_test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Treasure endpoint tests\"",
+              "fullTitle": "Treasure endpoint tests \"before all\" hook in \"Treasure endpoint tests\"",
+              "timedOut": false,
+              "duration": 198,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const registerPostOption = {\n    ...REGISTER_POST_OPTIONS,\n    data: new URLSearchParams(registeredUser)\n};\n//register user\nawait axios.request(registerPostOption)",
+              "err": {},
+              "uuid": "f741b1bc-519e-44df-8a43-a06c4cbb2dae",
+              "parentUUID": "e9f806d6-4b6b-498f-a758-02085e52e89b",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Treasure endpoint tests\"",
+              "fullTitle": "Treasure endpoint tests \"after all\" hook in \"Treasure endpoint tests\"",
+              "timedOut": false,
+              "duration": 102,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await dynamoDbClient.delete({\n    TableName: DYNAMO_TABLE_NAME,\n    Key: {\n        email: registeredUser.email\n    }\n}).promise()",
+              "err": {},
+              "uuid": "62991fe0-f428-4c44-942f-4c41aad88263",
+              "parentUUID": "e9f806d6-4b6b-498f-a758-02085e52e89b",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "User can access protected resource using valid token",
+              "fullTitle": "Treasure endpoint tests User can access protected resource using valid token",
+              "timedOut": false,
+              "duration": 3091,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const loginPostOption = {\n    ...LOGIN_POST_OPTIONS\n};\nloginPostOption['data'] = new URLSearchParams(registeredUser)\n//Get & store token from login response \nconst postResponse = await axios.request(loginPostOption)\nconst token = postResponse.data.access_token\nconst getTreasureOption = {\n    method: 'GET',\n    url: TREASURE_ENPOINT_URL,\n    headers: {\n        'Authorization': 'Bearer ' + token\n    }\n};\n//Access protected resource\nconst getTreasureResponse = await axios.request(getTreasureOption)\nexpect(getTreasureResponse.status).to.equal(200)\nexpect(getTreasureResponse.data).to.include(\"Private treasure\")",
+              "err": {},
+              "uuid": "e3b4a326-e4f4-4c97-aae2-15513d09f457",
+              "parentUUID": "e9f806d6-4b6b-498f-a758-02085e52e89b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e3b4a326-e4f4-4c97-aae2-15513d09f457"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3091,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
