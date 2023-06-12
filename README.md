@@ -66,6 +66,7 @@ To run tests
 npm run test
 ```` 
 Each test run generates a html report under folder mochawesome-report
+
 <img width="1201" alt="image" src="https://github.com/kllychung/FoundationMedicine/assets/39935361/01456c5c-95f2-4d0d-bce8-1eddc31a860a">
 
 ## Documentation
