@@ -60,7 +60,7 @@ API_URL=""
 ```` 
 >example API_URL="https://<<YOUR_DOMAIN_EXAMPLE>>.us-east-2.amazonaws.com/"
 
-### Test run & reporting
+#### Test run & reporting
 To run tests 
 ````
 npm run test
