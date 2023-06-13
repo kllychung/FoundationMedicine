@@ -73,7 +73,7 @@ npm install
 The tests folder has a env variable, make sure to set it to your api variable
 
 ```
-API_URL=""
+API_URL=
 ```
 
 > example API_URL="https://<<YOUR_DOMAIN_EXAMPLE>>.us-east-2.amazonaws.com/"
@@ -102,8 +102,7 @@ docker run -v ~/.aws:/root/.aws:ro "api-tests"
 ```
 
 Each test run generates a html report under folder mochawesome-report
-
-<img width="1201" alt="image" src="https://github.com/kllychung/FoundationMedicine/assets/39935361/01456c5c-95f2-4d0d-bce8-1eddc31a860a">
+<img width="1262" alt="image" src="https://github.com/kllychung/FoundationMedicine/assets/39935361/4a470983-ec4e-4a56-9585-341dc3a8196f">
 
 ## Documentation
 
