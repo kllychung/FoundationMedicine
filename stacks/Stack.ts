@@ -46,10 +46,6 @@ export function AppStack({ stack }: StackContext) {
         function: "packages/functions/src/get.treasure",
         authorizer: "auth0"
       },
-      "DELETE /users/{email}": {
-        function: "packages/functions/src/delete.main",
-        authorizer: "none"
-      }
     },
   });
 

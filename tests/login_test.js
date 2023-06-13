@@ -22,8 +22,7 @@ describe("Login endpoint tests", async () => {
     it("Unregistered user cannot login", async () => {
         const unregisteredUser = USERS["unregisteredUser"]
         let error, response;
-
-        //Fill login form with valid login info
+        //Fill login form with invalid login info
         try {
             response = await loginUser(unregisteredUser)
         }
