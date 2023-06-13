@@ -91,7 +91,7 @@ To run tests in docker container
 First build image
 
 ```
-docker build -t "my-cypress-img" .
+docker build -t "api-tests" .
 ```
 
 To run tests, the container will need access AWS permissions.
