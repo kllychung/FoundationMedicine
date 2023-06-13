@@ -45,7 +45,7 @@ AUTH0_CLIENT_SECRET=
 AUTH0_URL=
 ```
 
-> Example: AUTH0_URL="https://<<Your_AUTH0_TENANT>>.us.auth0.com/oauth/token"
+> Example: AUTH0_URL="https://<<Your_AUTH0_TENANT>>.us.auth0.com/"
 
 4. To create and run the stack<br />
 

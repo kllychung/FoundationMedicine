@@ -1,4 +1,5 @@
 import { Api, StackContext, Table } from "sst/constructs";
+import 'dotenv/config'
 
 export function AppStack({ stack }: StackContext) {
   // Create the table
@@ -10,14 +11,14 @@ export function AppStack({ stack }: StackContext) {
     },
     primaryIndex: { partitionKey: "email" },
   });
-
+  const auth0Url: string = process.env.AUTH0_URL ? process.env.AUTH0_URL.toString() : ''
   // Create the API
   const api = new Api(stack, "Api", {
     authorizers: {
       auth0: {
         type: "jwt",
         jwt: {
-          issuer: "https://dev-bxbbqutiokib8134.us.auth0.com/",
+          issuer: auth0Url,
           audience: ["https://auth0-jwt-authorizer"],
         },
       },

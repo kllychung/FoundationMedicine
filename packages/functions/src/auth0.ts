@@ -1,3 +1,4 @@
+import 'dotenv/config'
 const axios = require("axios").default;
 
 const auth0Params: any = {
@@ -9,7 +10,7 @@ const auth0Params: any = {
 
 const options = {
     method: 'POST',
-    url: process.env.AUTH0_URL,
+    url: process.env.AUTH0_URL + 'oauth/token',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     data: new URLSearchParams(auth0Params)
 };
