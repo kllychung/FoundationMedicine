@@ -1,20 +1,9 @@
-import AWS from "aws-sdk";
-import { Table } from "sst/node/table";
-
-import { APIGatewayProxyHandlerV2, APIGatewayProxyHandlerV2WithJWTAuthorizer } from "aws-lambda";
-
-const dynamoDb = new AWS.DynamoDB.DocumentClient();
+import { APIGatewayProxyHandlerV2 } from "aws-lambda";
+import { getUserFromDb } from "./dynamo";
 
 export const user: APIGatewayProxyHandlerV2 = async (event: any) => {
-  const params: any = {
-    TableName: Table.Users.tableName,
-    Key: {
-      email: event.pathParameters.email, // The id of the note from the path
-    },
-  };
-
   try {
-    const result = await dynamoDb.get(params).promise();
+    const result = await getUserFromDb(event.pathParameters.email)
     if (!result.Item) {
       throw new Error("Item not found.");
     }

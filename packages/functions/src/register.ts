@@ -1,9 +1,6 @@
-import AWS from "aws-sdk";
-import { Table } from "sst/node/table";
-
-const dynamoDb = new AWS.DynamoDB.DocumentClient();
-const Buffer = require('buffer/').Buffer
 import { APIGatewayProxyHandlerV2 } from "aws-lambda";
+import { extractParams } from "./helper";
+import { addUserToDb } from "./dynamo";
 
 export const main: APIGatewayProxyHandlerV2 = async (event: any) => {
   let body;
@@ -13,20 +10,8 @@ export const main: APIGatewayProxyHandlerV2 = async (event: any) => {
   };
 
   try {
-    const decodedMsg = Buffer.from(event.body, "base64").toString();
-    const userObj = Object.fromEntries(
-      new URLSearchParams(decodedMsg)
-    )
-    const { name, email, password } = userObj;
-    const params = {
-      TableName: Table.Users.tableName,
-      Item: {
-        email: email,
-        password: password,
-        name: name,
-      },
-    };
-    await dynamoDb.put(params).promise();
+    const { name, email, password } = extractParams(event.body);
+    await addUserToDb({ name, email, password });
     body = `${email} has successfully registered`;
   }
   catch (err: any) {

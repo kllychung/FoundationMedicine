@@ -5,9 +5,9 @@
     "passes": 4,
     "pending": 0,
     "failures": 0,
-    "start": "2023-06-13T04:55:08.341Z",
-    "end": "2023-06-13T04:55:18.757Z",
-    "duration": 10416,
+    "start": "2023-06-13T16:05:36.597Z",
+    "end": "2023-06-13T16:05:39.181Z",
+    "duration": 2584,
     "testsRegistered": 4,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "ed3ecc3b-f921-4610-99d3-036793021a8a",
+      "uuid": "6478277e-fed6-4390-b5ad-f4d83de6a22f",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "be76339e-0c8a-4be9-b469-78a631e982b8",
+          "uuid": "926f27b2-3b58-4903-a5cb-afcc5f8fbf83",
           "title": "Login endpoint tests",
           "fullFile": "/Users/kellychung/Documents/FoundationMedicine/user-app/tests/login_test.js",
           "file": "/login_test.js",
@@ -36,7 +36,7 @@
               "title": "\"before all\" hook in \"Login endpoint tests\"",
               "fullTitle": "Login endpoint tests \"before all\" hook in \"Login endpoint tests\"",
               "timedOut": false,
-              "duration": 162,
+              "duration": 165,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "await addUserToDb(registeredUser)",
               "err": {},
-              "uuid": "1adcbee7-e2d4-4c32-8763-948e30b55471",
-              "parentUUID": "be76339e-0c8a-4be9-b469-78a631e982b8",
+              "uuid": "2446fa8c-ab0a-477b-bbc4-a4bf0a2469d0",
+              "parentUUID": "926f27b2-3b58-4903-a5cb-afcc5f8fbf83",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after all\" hook in \"Login endpoint tests\"",
               "fullTitle": "Login endpoint tests \"after all\" hook in \"Login endpoint tests\"",
               "timedOut": false,
-              "duration": 111,
+              "duration": 101,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "await deleteUserFromDb(registeredUser.email)",
               "err": {},
-              "uuid": "27a77d5c-c84b-4890-94a7-b42b48c30f67",
-              "parentUUID": "be76339e-0c8a-4be9-b469-78a631e982b8",
+              "uuid": "b7ebd808-20e0-4ef7-b703-2ca8297035e0",
+              "parentUUID": "926f27b2-3b58-4903-a5cb-afcc5f8fbf83",
               "isHook": true,
               "skipped": false
             }
@@ -76,7 +76,7 @@
               "title": "Successful login returns valid token",
               "fullTitle": "Login endpoint tests Successful login returns valid token",
               "timedOut": false,
-              "duration": 3287,
+              "duration": 510,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -85,8 +85,8 @@
               "context": null,
               "code": "//Fill login form with valid login info\nconst postResponse = await loginUser(registeredUser)\n//Verify api returns valid token\nexpect(postResponse.data).to.include.keys(\"access_token\")",
               "err": {},
-              "uuid": "e7c0bb50-15e3-406e-a248-202b39ff1f4b",
-              "parentUUID": "be76339e-0c8a-4be9-b469-78a631e982b8",
+              "uuid": "73d5ccda-b821-4dee-ab92-76d5c633133e",
+              "parentUUID": "926f27b2-3b58-4903-a5cb-afcc5f8fbf83",
               "isHook": false,
               "skipped": false
             },
@@ -94,36 +94,36 @@
               "title": "Unregistered user cannot login",
               "fullTitle": "Login endpoint tests Unregistered user cannot login",
               "timedOut": false,
-              "duration": 196,
+              "duration": 180,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "const unregisteredUser = USERS[\"unregisteredUser\"]\nlet error, response;\n//Fill login form with valid login info\ntry {\n    response = await loginUser(unregisteredUser)\n}\ncatch (err) {\n    error = err\n}\n//Verify unauthorized user cannot login\nexpect(error.response.status).to.equal(401)\nexpect(error.response.data.error_message).to.equal(\"unauthorized\")",
+              "code": "const unregisteredUser = USERS[\"unregisteredUser\"]\nlet error, response;\n//Fill login form with invalid login info\ntry {\n    response = await loginUser(unregisteredUser)\n}\ncatch (err) {\n    error = err\n}\n//Verify unauthorized user cannot login\nexpect(error.response.status).to.equal(401)\nexpect(error.response.data.error_message).to.equal(\"unauthorized\")",
               "err": {},
-              "uuid": "c2f84849-adfa-437b-9012-aa9713049af4",
-              "parentUUID": "be76339e-0c8a-4be9-b469-78a631e982b8",
+              "uuid": "479882b0-1434-4a5b-887b-f051fbfd5834",
+              "parentUUID": "926f27b2-3b58-4903-a5cb-afcc5f8fbf83",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e7c0bb50-15e3-406e-a248-202b39ff1f4b",
-            "c2f84849-adfa-437b-9012-aa9713049af4"
+            "73d5ccda-b821-4dee-ab92-76d5c633133e",
+            "479882b0-1434-4a5b-887b-f051fbfd5834"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3483,
+          "duration": 690,
           "root": false,
           "rootEmpty": false,
           "_timeout": 8000
         },
         {
-          "uuid": "add8460f-d7a5-4185-9aef-2c87ffed1744",
+          "uuid": "3240342b-b76d-4667-aea7-b0921c04a4f1",
           "title": "Register post endpoints tests",
           "fullFile": "/Users/kellychung/Documents/FoundationMedicine/user-app/tests/register_test.js",
           "file": "/register_test.js",
@@ -133,7 +133,7 @@
               "title": "\"after all\" hook in \"Register post endpoints tests\"",
               "fullTitle": "Register post endpoints tests \"after all\" hook in \"Register post endpoints tests\"",
               "timedOut": false,
-              "duration": 110,
+              "duration": 99,
               "state": null,
               "speed": null,
               "pass": false,
@@ -142,8 +142,8 @@
               "context": null,
               "code": "await deleteUserFromDb(userToBeRegsistered.email)",
               "err": {},
-              "uuid": "b10214d1-f29b-4cc1-8498-066f1f85be47",
-              "parentUUID": "add8460f-d7a5-4185-9aef-2c87ffed1744",
+              "uuid": "7a0bc652-9389-40ab-9fd0-4557f52e4946",
+              "parentUUID": "3240342b-b76d-4667-aea7-b0921c04a4f1",
               "isHook": true,
               "skipped": false
             }
@@ -153,7 +153,7 @@
               "title": "user info is created in dynamo db after registration",
               "fullTitle": "Register post endpoints tests user info is created in dynamo db after registration",
               "timedOut": false,
-              "duration": 2897,
+              "duration": 307,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -162,26 +162,26 @@
               "context": null,
               "code": "//Fill registration with valid info and submit form\nawait registerUser(userToBeRegsistered)\n//Make a get request to retrieve user from dynamo db\nconst getUserResponse = await getUserFromDb(userToBeRegsistered.email)\n//verify info passed in equals info retrieved\nexpect(userToBeRegsistered).to.eql(getUserResponse.Item);",
               "err": {},
-              "uuid": "fa21240a-158c-4dd9-bab7-6ec700c72273",
-              "parentUUID": "add8460f-d7a5-4185-9aef-2c87ffed1744",
+              "uuid": "dff7eaa4-f8ae-4b3c-8a5b-13a772a508df",
+              "parentUUID": "3240342b-b76d-4667-aea7-b0921c04a4f1",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "fa21240a-158c-4dd9-bab7-6ec700c72273"
+            "dff7eaa4-f8ae-4b3c-8a5b-13a772a508df"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2897,
+          "duration": 307,
           "root": false,
           "rootEmpty": false,
           "_timeout": 8000
         },
         {
-          "uuid": "3b09e921-f199-432e-ab46-b8c395b3c07f",
+          "uuid": "4a2a4de3-3c8f-45cd-8550-33c3086198d1",
           "title": "Treasure endpoint tests",
           "fullFile": "/Users/kellychung/Documents/FoundationMedicine/user-app/tests/treasure_test.js",
           "file": "/treasure_test.js",
@@ -190,7 +190,7 @@
               "title": "\"before all\" hook in \"Treasure endpoint tests\"",
               "fullTitle": "Treasure endpoint tests \"before all\" hook in \"Treasure endpoint tests\"",
               "timedOut": false,
-              "duration": 99,
+              "duration": 102,
               "state": null,
               "speed": null,
               "pass": false,
@@ -199,8 +199,8 @@
               "context": null,
               "code": "await addUserToDb(registeredUser)",
               "err": {},
-              "uuid": "63653b3b-7b2a-42f3-a5cd-2b433f1d9dc2",
-              "parentUUID": "3b09e921-f199-432e-ab46-b8c395b3c07f",
+              "uuid": "ce8f3627-3adf-4dea-943c-611591308423",
+              "parentUUID": "4a2a4de3-3c8f-45cd-8550-33c3086198d1",
               "isHook": true,
               "skipped": false
             }
@@ -210,7 +210,7 @@
               "title": "\"after all\" hook in \"Treasure endpoint tests\"",
               "fullTitle": "Treasure endpoint tests \"after all\" hook in \"Treasure endpoint tests\"",
               "timedOut": false,
-              "duration": 104,
+              "duration": 103,
               "state": null,
               "speed": null,
               "pass": false,
@@ -219,8 +219,8 @@
               "context": null,
               "code": "await deleteUserFromDb(registeredUser.email)",
               "err": {},
-              "uuid": "6b75680b-9e74-47a2-8f2c-fea21fce866a",
-              "parentUUID": "3b09e921-f199-432e-ab46-b8c395b3c07f",
+              "uuid": "32eb63cb-e583-4cb4-832c-d25673587b0e",
+              "parentUUID": "4a2a4de3-3c8f-45cd-8550-33c3086198d1",
               "isHook": true,
               "skipped": false
             }
@@ -230,7 +230,7 @@
               "title": "User can access protected resource using valid token",
               "fullTitle": "Treasure endpoint tests User can access protected resource using valid token",
               "timedOut": false,
-              "duration": 3443,
+              "duration": 1012,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -239,20 +239,20 @@
               "context": null,
               "code": "//Retrieve token from login\nconst postResponse = await loginUser(registeredUser)\nconst token = postResponse.data.access_token\n//Use token to access protected resource\nconst treasureResponse = await retrieveTreasure(token)\nexpect(treasureResponse.status).to.equal(200)\nexpect(treasureResponse.data).to.include(\"Private treasure\")",
               "err": {},
-              "uuid": "37e27262-d3e5-49ad-aa13-d5a6e84dcfc1",
-              "parentUUID": "3b09e921-f199-432e-ab46-b8c395b3c07f",
+              "uuid": "0084fd6a-6b26-4abb-93a9-b54e8c7c0f75",
+              "parentUUID": "4a2a4de3-3c8f-45cd-8550-33c3086198d1",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "37e27262-d3e5-49ad-aa13-d5a6e84dcfc1"
+            "0084fd6a-6b26-4abb-93a9-b54e8c7c0f75"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3443,
+          "duration": 1012,
           "root": false,
           "rootEmpty": false,
           "_timeout": 8000
