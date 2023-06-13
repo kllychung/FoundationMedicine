@@ -1,4 +1,4 @@
-import { Stack } from "./stacks/Stack";
+import { AppStack } from "./stacks/Stack";
 
 export default {
   config(_input: any) {
@@ -8,6 +8,6 @@ export default {
     };
   },
   stacks(app: any) {
-    app.stack(Stack);
+    app.stack(AppStack);
   }
 };

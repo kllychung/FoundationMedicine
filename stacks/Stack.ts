@@ -1,6 +1,6 @@
 import { Api, StackContext, Table } from "sst/constructs";
 
-export function Stack({ stack }: StackContext) {
+export function AppStack({ stack }: StackContext) {
   // Create the table
   const table = new Table(stack, "Users", {
     fields: {
@@ -55,9 +55,5 @@ export function Stack({ stack }: StackContext) {
 
   stack.addOutputs({
     ApiEndpoint: api.url,
-  });
-
-  stack.addDefaultFunctionEnv({
-    DYNAMO_TABLE: "Users"
   });
 }

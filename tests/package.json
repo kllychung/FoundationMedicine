@@ -1,18 +1,20 @@
 {
-  "name": "api_tests",
+  "name": "tests",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha . -r dotenv/config --timeout 10000  --reporter mochawesome"
-  },
   "type": "module",
+  "scripts": {
+    "test": "mocha . -r dotenv/config --timeout 8000  --reporter mochawesome --retries 2"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1396.0",
     "axios": "^1.4.0",
     "chai": "^4.3.7",
+    "dotenv": "^16.1.4",
     "mocha": "^10.2.0",
     "mocha-axios": "^1.4.2",
     "mochawesome": "^7.1.3"
