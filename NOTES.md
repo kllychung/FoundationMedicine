@@ -9,12 +9,13 @@
 **Hurdles encountered**
 Figuring out which authorizer to use and integrating it with login to return a token was the hard part of the assignment. 
 
-**Approach**
-Creating stack approach
-The serverless api is created from a serverless stack template for dynamoDB. Overall sst is a very neat tool which helps bypass a lot of AWS config setup especially around IAM role.  
+**Approach**<br />
 
-Test framework approach
-* After using sst to provision AWS resources and getting familiar with aws sdk library, writing the tests in javascript made more sense. Mocha was used to fixture tests as it comes with plenty of options for tests runs and accurate reporting. Reporting & tracing was another requirement of this assignment. Chai handles tests assertion. 
-* All api tests and all test dependencies are under a separate folder called tests. Dockerfile included for CI/CD integration.
+Creating stack approach<br />
+- The serverless api is created from a serverless stack template for dynamoDB. Overall sst is a very neat tool which helps bypass a lot of AWS config setup especially around IAM role.  
+
+Test framework approach<br />
+- After using sst to provision AWS resources and getting familiar with aws sdk library, writing the tests in javascript made more sense. Mocha was used to fixture tests as it comes with plenty of options for tests runs and accurate reporting. Reporting & tracing was another requirement of this assignment. Chai handles tests assertion. 
+- All api tests and all test dependencies are under a separate folder called tests. Dockerfile included for CI/CD integration.
 
 
