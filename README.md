@@ -102,7 +102,7 @@ docker run -v ~/.aws:/root/.aws:ro "api-tests"
 ```
 
 Each test run generates a html report under folder mochawesome-report
-<img width="1262" alt="image" src="https://github.com/kllychung/FoundationMedicine/assets/39935361/4a470983-ec4e-4a56-9585-341dc3a8196f">
+![image](https://github.com/kllychung/FoundationMedicine/assets/39935361/1bf6e9aa-6b86-4054-b977-c3e3218878b1)
 
 ## Documentation
 
